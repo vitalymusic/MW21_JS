@@ -49,7 +49,7 @@ izvade = teksts.replaceAll("Lorem","RMMT");
 izvade = teksts.repeat(100)
 
 
-// 
+// Uzdevums: Uzrakstīt programmu, kas prasa lietotājam ieva'dit skaitli un tik daudz reizes izvada Virsrakstu (h1) dokumentā
 
 
 

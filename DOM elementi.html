@@ -14,12 +14,60 @@
     </div>
 
     <input type="text" name="" id="">
-    
+
     <button>Click Me</button>
     <button>Click Me</button>
     <button>Click Me</button>
     <button>Click Me</button>
 
+
+    <script>
+        // 1. Elementu nolasīšana no lapas
+       let virsraksts1 = document.querySelector('h1');
+       let outDiv = document.querySelector('.out');
+       let virsraksti = document.querySelectorAll('h1,h2');
+       let pogas = document.querySelectorAll('button');
+        
+        //2. elementu teksta satura maiņa
+        virsraksts1.textContent = "JavaScript";
+        outDiv.innerHTML = `<img src="https://picsum.photos/300">`;
+
+        // 3. Elementu Style maiņa
+
+        virsraksts1.style.fontSize = "50pt";
+        virsraksts1.style.color = "hsl(320,100%,50%)";
+
+        // 4. Elementu atribūtu maiņa
+
+        virsraksts1.lang = "lv";
+        document.title = "Cits nosaukums ar JS";
+
+        virsraksti[1].textContent = virsraksti[0].textContent;
+
+        // 5. notikumu pievienošana elementiem
+
+        virsraksts1.onclick = ()=>{
+            virsraksts1.style.display = "none";
+            document.body.insertAdjacentHTML('afterbegin',`
+            <img src="https://picsum.photos/id/50/400">
+            `)
+
+        }
+
+
+
+        
+
+       
+       
+       
+       console.log(virsraksts1,outDiv,virsraksti,pogas)
+
+
+
+
+
+    </script>
 
 
 

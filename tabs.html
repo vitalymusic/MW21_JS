@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tabs-head{
+            background-color: #999;
+            padding: 10px;
+        }
+
+        button{
+            border:none;
+            height:50px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .button_active{
+            background-color: #000;
+            color:#fff;
+        }
+
+        .tabs-body{
+            border:2px solid #ccc;
+        }
+
+        .tab{
+            display: none;
+            padding: 20px;
+        }
+
+        .tab_active{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="vk-tabs">
+        <div class="tabs-head">
+            <button data-section="sec1">Sadaļa 1</button>
+            <button data-section="sec2">Sadaļa 2</button>
+            <button data-section="sec3">Sadaļa 3</button>
+        </div>
+        <div class="tabs-body">
+            <div class="tab tab_active" id="sec1" >
+                <h1>Sadaļa1</h1>
+                <p>Pirmās sadaļas teksts</p>
+            </div>
+            <div class="tab" id="sec2">
+                 <h1>Sadaļa2</h1>
+                 <p>Otrās sadaļas teksts</p>
+            </div>
+            <div class="tab" id="sec3">
+                 <h1>Sadaļa3</h1>
+                 <p>Trešās sadaļas teksts</p>               
+            </div>
+
+        </div>    
+
+    </div>
+
+
+    <!-- HTML -->
+
+
+    <script>
+        let buttons = document.querySelectorAll('button');
+        let tabs = document.querySelectorAll('.tab');
+
+        for(button of buttons){
+            button.onclick = (e)=>{
+                 for(button of buttons){
+                    button.classList.remove('button_active');
+                 }
+
+                  for(tab of tabs){
+                    tab.classList.remove('tab_active');
+                 }
+
+                e.target.classList.add('button_active');
+                let section = e.target.dataset.section;
+
+                document.querySelector('#'+section).classList.add('tab_active');
+            }
+            
+
+        }
+
+
+    </script>
+</body>
+</html>

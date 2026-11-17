@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .marker{
+            position: absolute;
+            z-index: 100;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: black;
+            cursor: pointer;
+        }
+
+
+        .marker:hover{
+            transition: .3s ease-in-out;
+            transform: scale(1.2);
+            background-color: rgb(106, 2, 2);
+        }
+
+        img{
+            width:1600px;
+            display: block;
+            margin: auto;
+        }
+
+
+        #marker1{
+           top: calc(388px);
+            left: calc(50% - 143px);
+        }
+
+        #marker2{
+               top: calc(600px);
+               left: calc(625px);
+        }
+
+        #marker3{
+               top: calc(249px);
+                left: calc(1500px - 746px);
+        }
+
+        #marker4{
+             top: calc(836px);
+             left: calc(2487px - 650px);
+        }
+
+        .information{
+            width:1000px;
+            padding: 20px;
+            margin:100px auto;
+            border:1px solid black;
+            border-radius: 10px;
+            display: none;
+            overflow: hidden;
+
+            img{
+                max-width: 250px;
+                float: left;
+                margin: 20px;
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img src="./karte1.jpg" alt="" >
+    <div class="information"></div>
+
+    <div class="marker" id="marker1" data-city="Rīga"></div>
+    <div class="marker" id="marker2" data-city="Liepāja"></div>
+    <div class="marker" id="marker3" data-city="Ventspils"></div>
+    <div class="marker" id="marker4" data-city="Daugavpils"></div>
+
+
+
+    <script>
+        const data = {
+            Rīga:` <h1>Rīga</h1>
+                   <p>Apraksts<p>`,
+            Ventspils:` 
+                <h1>Ventspils</h1>
+                <p>Apraksts<p>
+                `,
+            Liepāja:` 
+                <h1>Liepaja</h1>
+                <p>Apraksts<p>
+                `,  
+            Daugavpils:` 
+                <h1>Daugavpils</h1>
+                <p>
+                    <img src="https://enciklopedija.lv/api/image/thumbnail?name=39b8e661e73d-1f42dff6-2c81-48ca-ab2f-ae5b52adf2f0.jpg&size=title" />   
+                Daugavpils ir otra lielākā pilsēta Latvijā, kas atrodas Daugavas abos krastos valsts dienvidaustrumos. Ar 77 486 iedzīvotājiem 2026. gadā tā ir nozīmīgs dzelzceļa, rūpniecības un kultūras centrs netālu no Lietuvas un Baltkrievijas robežām.
+                </p>       
+                <h3>Galvenie fakti un ģeogrāfija</h3>
+                <ul>
+                    <li>Atrašanās vieta. Pilsēta atrodas aptuveni 232 kilometrus uz dienvidaustrumiem no Rīgas gar Daugavu, un tā savieno divus vēsturiskos reģionus — Latgali upes labajā krastā un Sēliju kreisajā krastā.</li>
+                    <li>Vēsture. Pilsēta dibināta 1275. gadā kā Dinaburga, Krievijas impērijas laikā bija pazīstama kā Dvinska, bet savu pašreizējo nosaukumu ieguva 1920. gadā.</li>
+                    <li>Iedzīvotāji. Daugavpils izceļas ar daudznacionālu vidi, kurā līdzās latviešiem dzīvo ievērojamas krievu, poļu un baltkrievu kopienas.</li>
+                </ul>
+                `,                 
+
+        }
+
+
+        let markers = document.querySelectorAll('.marker');
+        let informationEl = document.querySelector('.information');
+
+
+        for(marker of markers){
+            marker.onmouseenter = (e)=>{
+                informationEl.innerHTML = data[e.target.dataset.city];
+                informationEl.style.display = "block";
+            }
+
+            marker.onmouseleave = ()=>{
+                informationEl.style.display = "none";
+            }
+        }
+
+
+    </script>
+</body>
+</html>
